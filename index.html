@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Filmes</title>
+
+  <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+  <!-- Stylesheets -->
+</head>
+<body>
+
+
+  <main class="d-flex flex-column flex-lg-row">
+
+    <div class="header px-0 px-lg-5 py-3">
+      <h1 class="text-center">Portal de Filmes</h1>
+      <h4 class="text-center popular">Os mais populares esta semana</h4>
+    </div>
+
+    <div class="content py-3 w-100">
+      <div class="search-box px-4 d-flex flex-row">
+        <input type="text" class="form-control mx-2" id="searchInput" placeholder="Buscar por filmes">
+        <button id="searchBtnClick">Buscar</button>
+      </div>
+
+      <div class="movie-list px-4 py-4 d-flex flex-row flex-wrap justify-content-center">
+      </div>
+    </div>
+
+  </main>
+  
+
+  <!-- Details modal -->
+    <div class="modal fade" id="movieDetailsModal" tabindex="-1" role="dialog" aria-labelledby="movieDetailsModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="modalTitle">Tenet</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img id="modalImage" class="w-100 mb-3">
+            <div class="w-100 text-center font-weight-bold">Sinopse:</div>
+            <p class="text-center mb-3" id="modalSinopse">
+              Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.
+            </p>
+            <div class="w-100 text-center font-weight-bold">Gêneros:</div>
+            <p class="text-center mb-3" id="modalGenero">
+              Action Thriller, Science Fiction
+            </p>
+            <div class="w-100 text-center font-weight-bold">Tempo de duração (minutos):</div>
+            <p class="text-center mb-3" id="modalDuration">
+              150 minutos
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-close" data-dismiss="modal">Fechar</button>
+            <a href="#" class="btn btn-red" target="_blank" id="modalSite">Acessar site</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- /Details modal -->
+
+  <div class="loader">
+    <div class="container">
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280.000000 1005.000000"
+        preserveAspectRatio="xMidYMid meet">
+        <metadata>
+        Created by potrace 1.15, written by Peter Selinger 2001-2017
+        </metadata>
+        <g transform="translate(0.000000,1005.000000) scale(0.100000,-0.100000)" stroke="none">
+        <path d="M7387 10040 c-577 -56 -1110 -268 -1547 -617 -117 -94 -316 -288
+        -417 -408 -289 -344 -516 -810 -604 -1241 -12 -60 -27 -114 -33 -120 -6 -6
+        -78 -23 -161 -38 -82 -15 -157 -29 -166 -32 -12 -3 -35 24 -84 96 -275 414
+        -659 725 -1122 909 -465 185 -1034 212 -1518 72 -300 -86 -574 -226 -825 -420
+        -117 -90 -330 -306 -419 -424 -204 -273 -352 -583 -424 -892 -114 -484 -78
+        -987 103 -1439 142 -357 383 -690 685 -946 235 -199 590 -388 868 -462 l87
+        -23 0 -132 0 -133 -239 0 c-140 0 -241 4 -243 9 -2 6 -131 57 -287 115 l-284
+        106 -199 0 c-109 0 -198 -2 -198 -5 0 -4 617 -1291 626 -1306 2 -3 56 8 120
+        26 l116 31 66 107 65 107 229 0 228 0 0 -1490 0 -1490 4150 0 4150 0 0 2475 0
+        2475 -322 0 -322 0 45 37 c410 344 741 860 893 1394 125 438 143 919 51 1375
+        -106 523 -371 1023 -750 1413 -401 413 -875 680 -1436 810 -241 56 -645 84
+        -882 61z m-2199 -4387 c126 -206 274 -386 471 -574 l134 -129 -742 0 c-409 0
+        -741 3 -739 8 2 4 33 52 69 107 110 164 225 400 269 551 l12 41 147 28 c131
+        25 314 61 318 64 0 1 28 -43 61 -96z m4196 -4678 c93 -45 146 -130 146 -235 0
+        -76 -21 -129 -71 -178 -54 -55 -104 -76 -184 -76 -79 -1 -130 20 -185 76 -129
+        129 -77 357 97 423 50 19 147 14 197 -10z"/>
+        <path d="M12060 4810 l-724 -440 -573 0 -573 0 2 -1102 3 -1103 580 -5 580 -5
+        715 -434 c393 -238 718 -435 723 -438 4 -2 7 889 7 1981 0 1092 -3 1986 -7
+        1986 -5 -1 -334 -199 -733 -440z"/>
+        </g>
+      </svg>
+      <h4 class="mt-3">Carregando...</h4>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+  <!-- /Scripts -->
+</body>
+</html>
