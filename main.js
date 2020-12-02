@@ -55,7 +55,7 @@ const createCardListeners = () => {
       getSingleMovie(target.dataset.movieId);
     })
 	}
-}
+};
 
 const createSearchListener = () => {
   document.querySelector('#searchBtnClick').addEventListener('click', () => {
@@ -67,14 +67,14 @@ const createSearchListener = () => {
       getSearchResults(queryString.value);
     }
   });
-}
+};
 
 
 // ===== Loader
 const switchLoader = (loaderActive) => {
   const loaderNode = document.querySelector('.loader');
   loaderActive ? loaderNode.classList.remove('-off') : loaderNode.classList.add('-off');
-}
+};
 
 
 // ===== Fetchers
