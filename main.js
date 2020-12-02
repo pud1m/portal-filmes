@@ -1,7 +1,12 @@
 // ===== Constantes
-const API_KEY = '30cb67a8944254d15f0f4b04c895da5f';
+const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMGNiNjdhODk0NDI1NGQxNWYwZjRiMDRjODk1ZGE1ZiIsInN1YiI6IjVmYzZjMjg2YzJiOWRmMDA0MTQ3NjU4MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hiY_VvR48KQypeK5XGr-_hiyzLA9Sz3FeHm_5kr2Cmw';
 const API_ROOT_URL = 'https://api.themoviedb.org/3/';
 const DEFAULT_PARAMS = 'language=pt-BR';
+
+const DEFAULT_HEADERS = {
+  'Authorization': `Bearer ${API_KEY}`,
+  'Content-Type': 'application/json;charset=utf-8'
+}
 
 
 // ===== Executor do código inicial
@@ -80,8 +85,9 @@ const switchLoader = (loaderActive) => {
 // ===== Fetchers
 const getTrending = async () => {
   switchLoader(true);
-  await fetch(`${API_ROOT_URL}trending/movie/week?api_key=${API_KEY}&${DEFAULT_PARAMS}`, {
-    method: 'GET'
+  await fetch(`${API_ROOT_URL}trending/movie/week?${DEFAULT_PARAMS}`, {
+    method: 'GET',
+    headers: DEFAULT_HEADERS
   })
     .then(async response => {
       data = await response.json(); 
@@ -104,8 +110,9 @@ const getTrending = async () => {
 
 const getSingleMovie = async (movieId) => {
   switchLoader(true);
-  await fetch(`${API_ROOT_URL}movie/${movieId}?api_key=${API_KEY}&${DEFAULT_PARAMS}`, {
-    method: 'GET'
+  await fetch(`${API_ROOT_URL}movie/${movieId}?${DEFAULT_PARAMS}`, {
+    method: 'GET',
+    headers: DEFAULT_HEADERS
   })
     .then(async response => {
       isSuccess = true;
@@ -123,8 +130,9 @@ const getSingleMovie = async (movieId) => {
 
 const getSearchResults = async (queryString) => {
   switchLoader(true);
-  await fetch(`${API_ROOT_URL}search/movie/?api_key=${API_KEY}&query=${queryString}&${DEFAULT_PARAMS}&page=1&include_adult=false`, {
-    method: 'GET'
+  await fetch(`${API_ROOT_URL}search/movie/?query=${queryString}&${DEFAULT_PARAMS}&page=1&include_adult=false`, {
+    method: 'GET',
+    headers: DEFAULT_HEADERS
   })
     .then(async response => {
       data = await response.json(); 
