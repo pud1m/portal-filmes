@@ -174,6 +174,16 @@ const getSearchResults = async (queryString) => {
     })
     .catch(err => {
       console.log(err);
+      const movieListNode = document.querySelector('div.movie-list');
+      const movieCardString = `
+        <div class="w-100 text-center mb-3">
+          <strong>Houve um erro na requisição da busca. O TMDb está redirecionando os requests de busca para HTTP. Como o navegador detecta esse comportamento compo inseguro, a requisição foi bloqueada. Para contornar esse problema no sistema do TMDb, você deve baixar o repositório e rodá-lo localmente</strong>
+          <br>O repositório está disponível publicamente <a href="https://github.com/pud1m/portal-filmes" target="_blank">neste link.</a>
+          <br>Você também pode voltar para a lista dos mais populares <a href="/">clicando aqui.</a>
+        </div>
+        `;
+      movieListNode.innerHTML = movieCardString;
+      window.alert('Erro ocasionado por problema na API do TMDb: ' + err);
     });
 
     switchLoader(false);
